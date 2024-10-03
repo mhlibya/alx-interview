@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 def pascal_row(row_num, previous_row):
     row = [1] * row_num
     for j in range(1, row_num - 1):
