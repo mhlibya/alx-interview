@@ -1,12 +1,20 @@
 #!/usr/bin/python3
-
+"""
+0-pascal_triangle
+"""
 def pascal_row(row_num, previous_row):
+    """
+    pascal triangle row
+    """
     row = [1] * row_num
     for j in range(1, row_num - 1):
         row[j] = previous_row[j - 1] + previous_row[j]
     return row
 
 def pascal_triangle(n):
+    """
+    Pascal triangle
+    """
     if n <= 0:
         return []
     
