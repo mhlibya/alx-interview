@@ -8,6 +8,11 @@ def canUnlockAll(boxes):
     """
        checks if all the boxes are openable
     """
+    if (type(boxes)) is not list:
+        return False
+    elif (len(boxes)) == 0:
+        return False
+    
     keys = boxes[0]
     for key in keys:
         for index in boxes[key]:
