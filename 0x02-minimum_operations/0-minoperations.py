@@ -18,4 +18,3 @@ def minOperations(n):
             li.append([li[l][0] + li[l][1], li[l][1], li[l][2] + 1])
             li.append([li[l][0] * 2, li[l][0], li[l][2] + 2])
             li.pop(l)
-            print(li)
