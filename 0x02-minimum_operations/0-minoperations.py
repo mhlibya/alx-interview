@@ -1,20 +1,24 @@
 #!/usr/bin/python3
 """
-   minimum operatioins
+   0-minoperations
 """
-
 def minOperations(n):
     """
-       minOperations
+    Calculate the minimum number of operations to get n H characters
+    using only 'Copy All' and 'Paste'.
     """
-    if n == 1:
-        return 0
-    li = [[2, 1, 2]]
-    while True:
-        for i in range(len(li)):
-            if li[i][0] == n:
-                return li[i][2]
-        for l in range(len(li)):
-            li.append([li[l][0] + li[l][1], li[l][1], li[l][2] + 1])
-            li.append([li[l][0] * 2, li[l][0], li[l][2] + 2])
-            li.pop(l)
+    if n <= 1:
+        return 0  # Impossible to achieve if n <= 1
+
+    operations = 0
+    divisor = 2
+
+    # Factorize n, and for each factor, add the appropriate number of operations
+    while n > 1:
+        # While n is divisible by the current divisor, divide it and count the operations
+        while n % divisor == 0:
+            operations += divisor  # Add the divisor to operations (Copy + multiple pastes)
+            n //= divisor
+        divisor += 1  # Move to the next potential divisor
+
+    return operations
