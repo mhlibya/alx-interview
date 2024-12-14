@@ -6,6 +6,8 @@ prime game.
 
 def primes(max_num):
     """Return a list of all prime numbers up to max_num using the Sieve of Eratosthenes."""
+    if max_num == 0 or max_num == 1:
+        return []
     is_prime = [True] * (max_num + 1)
     is_prime[0] = is_prime[1] = False  # 0 and 1 are not prime numbers
 
@@ -18,13 +20,13 @@ def primes(max_num):
 
 def isWinner(x, nums):
     """is winner."""
+    if x <= 0:
+        return None
     ben = maria = 0
     for num in nums:
         if len(primes(num)) % 2 == 0:
             ben += 1
         else:
             maria += 1
-    if ben > maria:
-        return "Ben"
-    elif ben > maria:
-        return "Maria"
+    return "Ben" if ben > maria else "Maria"
+
